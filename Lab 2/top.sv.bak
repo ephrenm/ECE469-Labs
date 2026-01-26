@@ -1,5 +1,4 @@
 // This module is the CLA with addition and differnece function
-
 module CLA_Arithetic_Module(
 	input logic [15:0] 	A, B,
 	output logic [15:0] 	Sum, Diff,
