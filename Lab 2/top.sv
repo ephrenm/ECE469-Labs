@@ -3,9 +3,11 @@ module CLA (
 	output 	logic[15:0] 	Sum, Diff,
 	output 	logic		OF_S, OF_D, LessThan);
 
+// Wire routings
 	logic g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15;
 	logic p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15;
 
+// GPbit inputs and outputs
 	GPbit gpbit0(A[0], B[0], g0, p0);
 	GPbit gpbit1(A[1], B[1], g1, p1);
 	GPbit gpbit2(A[2], B[2], g2, p2);
@@ -23,9 +25,11 @@ module CLA (
 	GPbit gpbit14(A[14], B[14], g14, p14);
 	GPbit gpbit15(A[15], B[15], g15, p15);
 
+// Wire routings for each GPbit
 	logic g1_0, g3_2, g5_4, g7_6, g9_8, g11_10, g13_12, g15_14;
 	logic p1_0, p3_2, p5_4, p7_6, p9_8, p11_10, p13_12, p15_14;
 
+// GPBlk level 1 inputs and outputs
 	GPblk gpblk1_0(g1, p1, g0, p0, g1_0, p1_0);
 	GPblk gpblk3_2(g3, p3, g2, p2, g3_2, p3_2);
 	GPblk gpblk5_4(g5, p5, g4, p4, g5_4, p5_4);
@@ -35,29 +39,37 @@ module CLA (
 	GPblk gpblk13_12(g13, p13, g12, p12, g13_12, p13_12);
 	GPblk gpblk15_14(g15, p15, g14, p14, g15_14, p15_14);
 
+// Wire routings for each GPBlk level 1
 	logic g3_0, g7_4, g11_8, g15_12;
 	logic p3_0, p7_4, p11_8, p15_12;
 	
+// GPBlk level 2 inputs and outputs
 	GPblk gpblk3_0(g3_2, p3_2, g1_0, p1_0, g3_0, p3_0);
 	GPblk gpblk7_4(g7_6, p7_6, g5_4, p5_4, g7_4, p7_4);
 	GPblk gpblk11_8(g11_10, p11_10, g9_8, p9_8, g11_8, p11_8);
 	GPblk gpblk15_12(g15_14, p15_14, g13_12, p13_12, g15_12, p15_12);
 
+// Wire routings for GPBlk level 2
 	logic g7_0, g15_8;
 	logic p7_0, p15_8;
 
+// GPBlk level 3 inputs and outputs
 	GPblk gpblk7_0(g7_4, p7_4, g3_0, p3_0, g7_0, p7_0);
 	GPblk gpblk15_8(g15_12, p15_12, g11_8, p11_8, g15_8, p15_8);
 
+// Wire routings for GPBlk level 3
 	logic g15_0;
 	logic p15_0;
 
+// GPBlk level 4 inputs and outputs
 	GPblk gpblk15_0(g15_8, p15_8, g7_0, p7_0, g15_0, p15_0);
 
+// Wirre routing for GPBlk level 4
 	logic c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16;
 	
 	assign c0 = 1'b0;
 
+// Carry bit modules and assignments
 	CARRY carry1(g0, p0, c0, c1);
 	CARRY carry2(g1_0, p1_0, c1, c2);
 	CARRY carry3(g2, p2, c2, c3);
@@ -75,6 +87,7 @@ module CLA (
 	CARRY carry15(g14, p14, c14, c15);
 	CARRY carry16(g15_0, p15_0, c0, c16);	
 
+// Sum bit modules and assignments
 	SUMbit sum0(A[0], B[0], c0, Sum[0]);
 	SUMbit sum1(A[1], B[1], c1, Sum[1]);
 	SUMbit sum2(A[2], B[2], c2, Sum[2]);
@@ -96,6 +109,7 @@ module CLA (
 
 endmodule
 
+// GPbit core module
 module GPbit (
 	input logic Ai, Bi,
 	output logic Gii, Pii);
@@ -105,6 +119,7 @@ module GPbit (
 
 endmodule
 
+// GPBlk core module
 module GPblk (
 	input logic Gik, Pik, Gkj, Pkj,
 	output logic Gij, Pij);
@@ -114,6 +129,7 @@ module GPblk (
 
 endmodule
 
+// Sum bit core module
 module SUMbit (
 	input logic Ai, Bi, Cin,
 	output logic Si);
@@ -122,6 +138,7 @@ module SUMbit (
 
 endmodule
 
+// Carry bit core module
 module CARRY (
 	input logic Gij, Pij, Cj,
 	output logic Cii);
