@@ -4,7 +4,7 @@ module testbench();
     logic signed [15:0] sum, diff;
     logic signed of_s, of_d, lessthan;
     
-    CLA dut(a,b,sum,diff,of_s,of_d,lessthan);
+    CLA_Arithetic_Module dut(a,b,sum,diff,of_s,of_d,lessthan);
 
     initial begin 
 
