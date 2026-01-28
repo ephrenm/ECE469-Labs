@@ -1,14 +1,18 @@
 //Code for the cases from the testbench table
 module testbench();
+	//Initiates logic
     logic signed [15:0] a, b;
     logic signed [15:0] sum, diff;
     logic signed of_s, of_d, lessthan;
-    
+
+	//calls CLA_Arithetic_Module
     CLA_Arithetic_Module dut(a,b,sum,diff,of_s,of_d,lessthan);
 
+	//start of test
     initial begin 
 
 		$display ("Simulation begin.");
+		//prints out results for each variable for every case
 		$monitor("a=%d | b=%d | sum=%d | of_s=%b | diff=%d | of_d=%b | lessthan=%b", a, b, sum, of_s, diff, of_d, lessthan);
 
 		//Case 1 
@@ -34,7 +38,8 @@ module testbench();
 
 		//Case 8 
 		a=-10000 ; b=-20000 ; #10;
-	
+
+		//end of test
 		$display ("Simulation end.");
 		
     end
