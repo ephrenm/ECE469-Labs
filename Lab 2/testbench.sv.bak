@@ -11,15 +11,12 @@ module testbench();
 
 	$display ("Simulation begin.");
 	
-	// NOTE: These lines of code are only for displaying the results. 
-	// These lines of code have nothing to do with the test bench itself.
-
         for (int i=0; i<65536; i++) begin
             for (int j=0; j<65536; j++) begin
                 a=i;
                 b=j;
                 #1;
-		if( (sum != (i+j)) && (of_s == 0)) begin
+		if( (sum != (i+j)) & (of_s = 0)) begin
 		    $display ("Error at a=%0d, b=%0d. Expected %0d, returned %0d.", i, j, (i+j), sum);
 		end
             end

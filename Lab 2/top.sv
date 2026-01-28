@@ -22,8 +22,8 @@ module CLA_Arithetic_Module(
 	// Difference module (A-B = A+(~B)+1)
 	CLA Difference(
 		.A(A),
-		.B(B),
-		.Cin(1'b0),	// Setting the carry-in to 0 for addition
+		.B(B_inverted),
+		.Cin(1'b1),	// Setting the carry-in to 0 for addition
 		.Sum(Diff),
 		.OF(OF_D)
 		);
@@ -37,8 +37,9 @@ endmodule
 
 module CLA (
 	input 	logic[15:0] 	A, B,
-	output 	logic[15:0] 	Sum, Diff,
-	output 	logic		OF_S, OF_D, LessThan);
+	input 	logic		Cin,
+	output 	logic[15:0] 	Sum,
+	output 	logic		OF);
 
 // Wire routings
 	logic g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15;
@@ -104,7 +105,7 @@ module CLA (
 // Wirre routing for GPBlk level 4
 	logic c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16;
 	
-	assign c0 = 1'b0;
+	assign c0 = Cin;
 
 // Carry bit modules and assignments
 	CARRY carry1(g0, p0, c0, c1);
@@ -142,7 +143,7 @@ module CLA (
 	SUMbit sum14(A[14], B[14], c14, Sum[14]);
 	SUMbit sum15(A[15], B[15], c15, Sum[15]);
 
-	assign OF_S = c16;
+	assign OF = c16 ^ c15;
 
 endmodule
 
