@@ -1,27 +1,41 @@
 //Code for the cases from the testbench table
 module testbench();
-    logic[15:0] a, b;
-    logic[15:0] sum, diff;
-    logic of_s, of_d, lessthan;
+    logic signed [15:0] a, b;
+    logic signed [15:0] sum, diff;
+    logic signed of_s, of_d, lessthan;
     
     CLA dut(a,b,sum,diff,of_s,of_d,lessthan);
 
     initial begin 
 
-	$display ("Simulation begin.");
-	
-        for (int i=0; i<65536; i++) begin
-            for (int j=0; j<65536; j++) begin
-                a=i;
-                b=j;
-                #1;
-		if( (sum != (i+j)) & (of_s = 0)) begin
-		    $display ("Error at a=%0d, b=%0d. Expected %0d, returned %0d.", i, j, (i+j), sum);
-		end
-            end
-        end
-	
-	$display ("Simulation end.");
+		$display ("Simulation begin.");
+		$monitor("a=%d | b=%d | sum=%d | of_s=%b | diff=%d | of_d=%b | lessthan=%b", a, b, sum, of_s, diff, of_d, lessthan);
 
+		//Case 1 
+		a=32767 ; b=-1 ; #10;
+
+		//Case 2 
+		a=-20 ; b=30 ; #10;
+
+		//Case 3 
+		a=100 ; b=100 ; #10;
+
+		//Case 4 
+		a=-16000 ; b=-15000 ; #10;
+
+		//Case 5 
+		a=31000 ; b=-1000 ; #10;
+
+		//Case 6 
+		a=-22000 ; b=22000 ; #10;
+
+		//Case 7 
+		a=32767 ; b=32768 ; #10;
+
+		//Case 8 
+		a=-10000 ; b=-20000 ; #10;
+	
+		$display ("Simulation end.");
+		
     end
 endmodule
