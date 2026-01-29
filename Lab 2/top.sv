@@ -108,22 +108,22 @@ module CLA (
 	assign c0 = Cin;
 
 // Carry bit modules and assignments
-	CARRY carry1(g0, p0, c0, c1);
-	CARRY carry2(g1_0, p1_0, c1, c2);
-	CARRY carry3(g2, p2, c2, c3);
-	CARRY carry4(g3_0, p3_0, c0, c4);
-	CARRY carry5(g4, p4, c4, c5);
-	CARRY carry6(g5_4, p5_4, c4, c6);
-	CARRY carry7(g6, p6, c6, c7);
-	CARRY carry8(g7_0, p7_0, c0, c8);
-	CARRY carry9(g8, p8, c8, c9);
-	CARRY carry10(g9_8, p9_8, c8, c10);
-	CARRY carry11(g10, p10, c10, c11);
-	CARRY carry12(g11_8, p11_8, c8, c12);
-	CARRY carry13(g12, p12, c12, c13);
-	CARRY carry14(g13_12, p13_12, c12, c14);
-	CARRY carry15(g14, p14, c14, c15);
-	CARRY carry16(g15_0, p15_0, c0, c16);	
+	CARRYbit carry1(g0, p0, c0, c1);
+	CARRYbit carry2(g1_0, p1_0, c1, c2);
+	CARRYbit carry3(g2, p2, c2, c3);
+	CARRYbit carry4(g3_0, p3_0, c0, c4);
+	CARRYbit carry5(g4, p4, c4, c5);
+	CARRYbit carry6(g5_4, p5_4, c4, c6);
+	CARRYbit carry7(g6, p6, c6, c7);
+	CARRYbit carry8(g7_0, p7_0, c0, c8);
+	CARRYbit carry9(g8, p8, c8, c9);
+	CARRYbit carry10(g9_8, p9_8, c8, c10);
+	CARRYbit carry11(g10, p10, c10, c11);
+	CARRYbit carry12(g11_8, p11_8, c8, c12);
+	CARRYbit carry13(g12, p12, c12, c13);
+	CARRYbit carry14(g13_12, p13_12, c12, c14);
+	CARRYbit carry15(g14, p14, c14, c15);
+	CARRYbit carry16(g15_0, p15_0, c0, c16);	
 
 // Sum bit modules and assignments
 	SUMbit sum0(A[0], B[0], c0, Sum[0]);
@@ -177,7 +177,7 @@ module SUMbit (
 endmodule
 
 // Carry bit core module
-module CARRY (
+module CARRYbit (
 	input logic Gij, Pij, Cj,
 	output logic Cii);
 
