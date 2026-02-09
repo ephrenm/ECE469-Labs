@@ -13,7 +13,7 @@ module brent_kung_16(
 	genvar i;
 
 	generate
-	    for (i=0; i < 15; i = i + 1) begin
+	    for (i=0; i < 16; i = i + 1) begin
 	    	GPbit gp0 (A[i], B[i], g0[i], p0[i]);
 	    end
 	endgenerate
@@ -21,7 +21,7 @@ module brent_kung_16(
 	logic [7:0] p1, g1;
 
 	generate
-	    for (i=0; i < 7; i = i + 1) begin
+	    for (i=0; i < 8; i = i + 1) begin
 	    	GPblk gp1 (g0[(2*i)+1], p0[(2*i)+1], g0[(2*i)], p0[(2*i)], g1[i], p1[i]);
 	    end
 	endgenerate
@@ -90,7 +90,7 @@ module GPbit (
 	output logic Gii, Pii);
 
 	assign Gii = Ai & Bi;
-	assign Pii = Ai | Bi;
+	assign Pii = Ai ^ Bi;
 
 endmodule
 

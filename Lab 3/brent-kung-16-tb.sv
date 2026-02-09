@@ -2,22 +2,15 @@
 
 module tb_brent_kung_16;
 
-    // -------------------------------------------------------------------------
-    // 1. Signal Declarations
-    // -------------------------------------------------------------------------
     logic [15:0] A, B;
     logic [15:0] Sum;
-    logic        C_out; // Mapping 'Overflow' to Carry Out
+    logic        C_out; 
 
-    // Variables for verification
     logic [16:0] expected_result;
     int          error_count = 0;
     int          test_count = 0;
     int          i; // Loop variable
 
-    // -------------------------------------------------------------------------
-    // 2. DUT Instantiation
-    // -------------------------------------------------------------------------
     brent_kung_16 dut (
         .A(A),
         .B(B),
@@ -25,17 +18,12 @@ module tb_brent_kung_16;
         .Overflow(C_out) 
     );
 
-    // -------------------------------------------------------------------------
-    // 3. Verification Task
-    // -------------------------------------------------------------------------
     task check_result;
         input string test_name;
         begin
-            // Calculate expected result using behavioral addition
-            // We cast A and B to 17 bits to capture the carry out behaviorally
             expected_result = {1'b0, A} + {1'b0, B};
 
-            #1; // Small delay for logic settling
+            #1; 
 
             if ({C_out, Sum} !== expected_result) begin
                 $display("FAIL: %s | A: %h + B: %h", test_name, A, B);
@@ -47,15 +35,8 @@ module tb_brent_kung_16;
         end
     endtask
 
-    // -------------------------------------------------------------------------
-    // 4. Test Stimulus
-    // -------------------------------------------------------------------------
     initial begin
-        $display("---------------------------------------------------");
-        $display("Starting Verification of 16-bit Brent-Kung Adder");
-        $display("---------------------------------------------------");
-
-        // --- DIRECTED TESTS (Corner Cases) ---
+        $display("Starting Verification");
         
         // Test 1: Zero + Zero
         A = 16'h0000; B = 16'h0000;
@@ -82,12 +63,10 @@ module tb_brent_kung_16;
         A = 16'h00FF; B = 16'h0001;
         check_result("Mid-Carry Prop");
 
-        // --- RANDOMIZED TESTS (Replaced std::randomize with $random) ---
+        // --- RANDOMIZED TESTS ---
         $display("Running 10,000 randomized test vectors...");
         
         for (i = 0; i < 10000; i = i + 1) begin
-            // $random returns a 32-bit signed integer. 
-            // We assign it to 16-bit regs, which automatically truncates it.
             A = $random; 
             B = $random;
             check_result("Random");
