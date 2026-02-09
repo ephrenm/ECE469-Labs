@@ -64,22 +64,22 @@ module brent_kung_16(
 
 	assign Sum[0] = p0[0];
 	SUMbit sum1(p0[1], g0[0], Sum[1]);
-    	SUMbit sum2(p0[2], g1[0], Sum[2]);
-   	SUMbit sum3(p0[3], g7[0], Sum[3]);
-    	SUMbit sum4(p0[4], g2[0], Sum[4]);
-    	SUMbit sum5(p0[5], g7[1], Sum[5]);
-    	SUMbit sum6(p0[6], g6[0], Sum[6]);
-    	SUMbit sum7(p0[7], g7[2], Sum[7]);
-    	SUMbit sum8(p0[8], g3[0], Sum[8]);
-    	SUMbit sum9(p0[9], g7[3], Sum[9]);
-    	SUMbit sum10(p0[10], g6[1], Sum[10]);
-    	SUMbit sum11(p0[11], g7[4], Sum[11]);
-    	SUMbit sum12(p0[12], g5, Sum[12]);
-    	SUMbit sum13(p0[13], g7[5], Sum[13]);
-    	SUMbit sum14(p0[14], g6[2], Sum[14]);
-    	SUMbit sum15(p0[15], g7[6], Sum[15]);
+	SUMbit sum2(p0[2], g1[0], Sum[2]);
+	SUMbit sum3(p0[3], g7[0], Sum[3]);
+	SUMbit sum4(p0[4], g2[0], Sum[4]);
+	SUMbit sum5(p0[5], g7[1], Sum[5]);
+	SUMbit sum6(p0[6], g6[0], Sum[6]);
+	SUMbit sum7(p0[7], g7[2], Sum[7]);
+	SUMbit sum8(p0[8], g3[0], Sum[8]);
+	SUMbit sum9(p0[9], g7[3], Sum[9]);
+	SUMbit sum10(p0[10], g6[1], Sum[10]);
+	SUMbit sum11(p0[11], g7[4], Sum[11]);
+	SUMbit sum12(p0[12], g5, Sum[12]);
+	SUMbit sum13(p0[13], g7[5], Sum[13]);
+	SUMbit sum14(p0[14], g6[2], Sum[14]);
+	SUMbit sum15(p0[15], g7[6], Sum[15]);
 
-    	assign Overflow = g4;
+	assign Overflow = g4;
 
 endmodule
 
