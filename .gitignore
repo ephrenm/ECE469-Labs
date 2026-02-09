@@ -103,3 +103,13 @@ Lab 2/output_files/top.sta.rpt
 Lab 2/output_files/top.sta.summary
 Lab 2/top.qsf
 Lab 2/top_description.txt
+*.qws
+*.bak
+*.qdb
+*.qpg
+*.qtl
+*.mti
+*.mpf
+*.wlf
+Lab 3/ECE469/_info
+Lab 3/ECE469/_vmake
