@@ -1,9 +1,9 @@
 //Code for the cases from the testbench table
 module top_testbench();
 	//Initiates logic
-  logic signed [16:0] a, b;
-  logic signed [16:0] sum, diff;
-    logic signed of_s, of_d;
+  logic [16:0] a, b;
+  logic [16:0] sum, diff;
+  logic of_s, of_d;
 
 	//calls CLA_Arithetic_Module
     top dut(a,b,sum,diff,of_s,of_d);
@@ -13,7 +13,13 @@ module top_testbench();
 
 		$display ("Simulation begin.");
 		//prints out results for each variable for every case
-		$monitor("a=%d | b=%d | sum=%d | of_s=%b | diff=%d | of_d=%b", a, b, sum, of_s, diff, of_d);
+		$monitor("a=%s%0d | b=%s%0d | sum=%s%0d | of_s=%b | diff=%s%0d | of_d=%b", 
+    			(a[16] ? "-" : "+"), a[15:0], 
+    			(b[16] ? "-" : "+"), b[15:0], 
+    			(sum[16] ? "-" : "+"), sum[15:0], 
+   			of_s, 
+    			(diff[16] ? "-" : "+"), diff[15:0], 
+    			of_d);
 
 		//Case 1 
 		a=17'b0_0000_0000_0000_0011 ; b=17'b0_0000_0000_0000_0001  ; #10;
@@ -37,7 +43,7 @@ module top_testbench();
 		a=17'b1_0000_0000_0000_0001 ; b=17'b1_1111_1111_1111_1111 ; #10;
 
 		//Case 8 
-		a=17'b0000_0000_0110_0100 ; b=17'b0_0000_0000_0011_0010; ; #10;
+		a=17'b1_0000_0000_0110_0100 ; b=17'b1_0000_0000_0011_0010; ; #10;
 
 		//end of test
 		$display ("Simulation end.");

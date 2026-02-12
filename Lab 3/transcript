@@ -1,0 +1,39 @@
+# Compile of brent-kung-16.sv was successful.
+# Compile of brent-kung-16-tb.sv was successful.
+# Compile of subtractor-16.sv was successful.
+# Compile of subtractor-16-tb.sv was successful.
+# Compile of top.sv was successful.
+# Compile of top_testbench.sv was successful.
+# 6 compiles, 0 failed with no errors.
+# Compile of brent-kung-16.sv was successful.
+# Compile of brent-kung-16-tb.sv was successful.
+# Compile of subtractor-16.sv was successful.
+# Compile of subtractor-16-tb.sv was successful.
+# Compile of top.sv was successful.
+# Compile of top_testbench.sv was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui ECE469.top_testbench
+# vsim -gui ECE469.top_testbench 
+# Start time: 20:30:39 on Feb 11,2026
+# Loading sv_std.std
+# Loading ECE469.top_testbench
+# Loading ECE469.top
+# Loading ECE469.comparator
+# Loading ECE469.brent_kung_16
+# Loading ECE469.GPbit
+# Loading ECE469.GPblk
+# Loading ECE469.SUMbit
+# Loading ECE469.subtractor_16
+# Loading ECE469.full_subtractor
+add wave -position insertpoint sim:/top_testbench/*
+run
+# Simulation begin.
+# a=+3 | b=+1 | sum=+4 | of_s=0 | diff=+2 | of_d=0
+# a=+1 | b=+65535 | sum=+0 | of_s=1 | diff=-65534 | of_d=0
+# a=+65535 | b=-1 | sum=+65534 | of_s=0 | diff=+0 | of_d=1
+# a=+4 | b=-32767 | sum=-32763 | of_s=0 | diff=+32771 | of_d=0
+# a=-4 | b=+32767 | sum=+32763 | of_s=0 | diff=-32771 | of_d=0
+# a=-65535 | b=+1 | sum=-65534 | of_s=0 | diff=-0 | of_d=1
+# a=-1 | b=-65535 | sum=-0 | of_s=1 | diff=+65534 | of_d=0
+# a=-100 | b=-50 | sum=-150 | of_s=0 | diff=-50 | of_d=0
+# Simulation end.

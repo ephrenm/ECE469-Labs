@@ -6,25 +6,35 @@ module brent_kung_16(
 	output logic 		Overflow
 );
 
-	logic [16:0] c_out;
-
 	logic [15:0] p0, g0;
 
-	genvar i;
-
-	generate
-	    for (i=0; i < 16; i = i + 1) begin : gp0
-	    	GPbit gp0 (A[i], B[i], g0[i], p0[i]);
-	    end
-	endgenerate
+	GPbit gp0_0  (A[0],  B[0],  g0[0],  p0[0]);
+	GPbit gp0_1  (A[1],  B[1],  g0[1],  p0[1]);
+	GPbit gp0_2  (A[2],  B[2],  g0[2],  p0[2]);
+	GPbit gp0_3  (A[3],  B[3],  g0[3],  p0[3]);
+	GPbit gp0_4  (A[4],  B[4],  g0[4],  p0[4]);
+	GPbit gp0_5  (A[5],  B[5],  g0[5],  p0[5]);
+	GPbit gp0_6  (A[6],  B[6],  g0[6],  p0[6]);
+	GPbit gp0_7  (A[7],  B[7],  g0[7],  p0[7]);
+	GPbit gp0_8  (A[8],  B[8],  g0[8],  p0[8]);
+	GPbit gp0_9  (A[9],  B[9],  g0[9],  p0[9]);
+	GPbit gp0_10 (A[10], B[10], g0[10], p0[10]);
+	GPbit gp0_11 (A[11], B[11], g0[11], p0[11]);
+	GPbit gp0_12 (A[12], B[12], g0[12], p0[12]);
+	GPbit gp0_13 (A[13], B[13], g0[13], p0[13]);
+	GPbit gp0_14 (A[14], B[14], g0[14], p0[14]);
+	GPbit gp0_15 (A[15], B[15], g0[15], p0[15]);
 
 	logic [7:0] p1, g1;
 
-	generate
-	    for (i=0; i < 8; i = i + 1) begin : gp1
-	    	GPblk gp1 (g0[(2*i)+1], p0[(2*i)+1], g0[(2*i)], p0[(2*i)], g1[i], p1[i]);
-	    end
-	endgenerate
+	GPblk gp1_0 (g0[1],  p0[1],  g0[0],  p0[0],  g1[0], p1[0]);
+	GPblk gp1_1 (g0[3],  p0[3],  g0[2],  p0[2],  g1[1], p1[1]);
+	GPblk gp1_2 (g0[5],  p0[5],  g0[4],  p0[4],  g1[2], p1[2]);
+	GPblk gp1_3 (g0[7],  p0[7],  g0[6],  p0[6],  g1[3], p1[3]);
+	GPblk gp1_4 (g0[9],  p0[9],  g0[8],  p0[8],  g1[4], p1[4]);
+	GPblk gp1_5 (g0[11], p0[11], g0[10], p0[10], g1[5], p1[5]);
+	GPblk gp1_6 (g0[13], p0[13], g0[12], p0[12], g1[6], p1[6]);
+	GPblk gp1_7 (g0[15], p0[15], g0[14], p0[14], g1[7], p1[7]);
 
 	logic [3:0] p2, g2;
 
