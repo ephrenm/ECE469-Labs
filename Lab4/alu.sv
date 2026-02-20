@@ -7,17 +7,19 @@ module alu(
 );
   
   logic [31:0] invB, BB, adder_out, or_out, and_out, zext_out;
-  
+
+  //code for Mux1
   assign invB=~B;
   assign BB=(F[2]) ? invB : B;
 
+  //Gate logic using Mux result and A
   assign or_out = BB | A;
   assign and_out = BB & A;
   
-  //needs adder/subtractor
+  //adder/subtractor
   assign {Cout, S} = A + BB + F[2];
   
-  //needs zero extender
+  //zero extender
   assign zext_out = {31'b0, adder_out[31]}
 
   always_comb
@@ -30,6 +32,9 @@ module alu(
         default: Y=32'b0;
       endcase
     end
+
+  assign zero = ~|Y;
+  
 endmodule
 
     
