@@ -6,7 +6,8 @@ module alu(
   output logic zero
 );
   
-  logic [31:0] invB, BB, adder_out, or_out, and_out, zext_out;
+  logic [31:0] invB, BB, or_out, and_out, zext_out, S;
+  logic		   Cout;
 
   //code for Mux1
   assign invB=~B;
@@ -20,10 +21,7 @@ module alu(
   assign {Cout, S} = A + BB + F[2];
   
   //zero extender
-  assign zext_out = {31'b0, adder_out[31]};
-
-  //assign set less than
-  assign slt_res = (A < B);
+  assign zext_out = {31'b0, S[31]};
 
   always_comb
     begin
@@ -31,7 +29,7 @@ module alu(
         2'b00: Y=and_out;
         2'b01: Y=or_out;
         2'b10: Y=S;
-        2'b11: Y=slt_res;
+        2'b11: Y=zext_out;
         default: Y=32'b0;
       endcase
     end
