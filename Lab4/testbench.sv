@@ -1,54 +1,46 @@
 //testbench code
-module testbench3();
+module testbench();
  logic clk, reset;
- logic a, b, c, yexpected;
- logic y;
- logic [31:0] vectornum, errors; // bookkeeping variables
- logic [3:0] testvectors[10000:0]; // array of testvectors
+ logic [31:0] a, b, y, y_expected;
+ logic [2:0] f;
+ logic zero, zero_expected;
+ logic [31:0] vectornum, errors; 
+ logic [3:0] testvectors[10000:0]; 
 
- // instantiate device under test
-my_circ dut(a, b, c, y);
+alu dut(a, b, f, y, zero);
 
- // generate clock
- always // no sensitivity list, so it always executes
- begin
- clk = 1; #5; clk = 0; #5;
- end
+ always 
+   begin
+     clk = 1; #5; clk = 0; #5;
+   end
 
-  // at start of test, load vectors and pulse reset
 initial
- begin
- $readmemb("example.tv", testvectors);
- vectornum = 0; errors = 0;
- reset = 1; #27; reset = 0; //reset for a few cycles
- end
-// Note: use $readmemh to read testvector files written in hex
+  begin
+    $readmemb("alu.tv", testvectors);
+    vectornum = 0; errors = 0;
+    reset = 1; #27; reset = 0; //reset for a few cycles
+  end
 
-  // apply test vectors on rising edge of clk
  always @(posedge clk)
- begin
- #1; {a, b, c, yexpected} = testvectors[vectornum];
- end
+  begin
+    #1; {f, a, b, y_expected, zero_expected} = testvectors[vectornum];
+  end
 
-  // check results on falling edge of clk
  always @(negedge clk) begin
- if (~reset) begin // skip during reset
- if (y !== yexpected) begin
- $display("Error: inputs = %b", {a, b, c});
- $display(" outputs = %b (%b expected)",y,yexpected);
- errors = errors + 1;
- end
-// Note: to print in hexadecimal, use %h. For example,
-// $display(“Error: inputs = %h”, {a, b, c});
+  if (~reset) begin 
+    if (y !== y_expected) begin
+      $display("Error: inputs = %b", {a, b, c});
+      $display(" outputs = %b (%b expected)",y,y_expected);
+      errors = errors + 1;
+    end
 
-// increment array index and read next testvector
- vectornum = vectornum + 1;
- if (testvectors[vectornum] === 4'bx) begin
- $display("%d tests completed with %d errors",
- vectornum, errors);
- $finish;
- end
-end
- end
+    vectornum = vectornum + 1;
+    if (testvectors[vectornum] === 4'bx) begin
+      $display("%d tests completed with %d errors",
+      vectornum, errors);
+     $finish;
+    end
+   end
+  end
+
 endmodule
-// === and !== can compare values that are 1, 0, x, or z.

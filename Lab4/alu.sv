@@ -20,7 +20,10 @@ module alu(
   assign {Cout, S} = A + BB + F[2];
   
   //zero extender
-  assign zext_out = {31'b0, adder_out[31]}
+  assign zext_out = {31'b0, adder_out[31]};
+
+  //assign set less than
+  assign slt_res = (A < B);
 
   always_comb
     begin
