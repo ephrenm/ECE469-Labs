@@ -13,9 +13,12 @@ module alu(
 
   assign or_out = BB | A;
   assign and_out = BB & A;
+  
   //needs adder/subtractor
+  assign {Cout, S} = A + BB + F[2];
   
   //needs zero extender
+  assign zext_out = {31'b0, adder_out[31]}
 
   always_comb
     begin
