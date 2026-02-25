@@ -3,13 +3,13 @@ module alu(
   input logic [31:0] A, B,
   input logic [2:0] F,
   output logic [31:0] Y,
-  output logic zero
+  output logic zero, OF
 );
   
   logic [31:0] invB, BB, or_out, and_out, zext_out, S;
   logic		   Cout;
 
-  //code for Mux1
+  //Mux1
   assign invB=~B;
   assign BB=(F[2]) ? invB : B;
 
@@ -23,6 +23,7 @@ module alu(
   //zero extender
   assign zext_out = {31'b0, S[31]};
 
+  //Mux2
   always_comb
     begin
       case(F[1:0])
@@ -34,6 +35,7 @@ module alu(
       endcase
     end
 
+  //Zero identifier
   assign zero = ~|Y;
   
 endmodule
