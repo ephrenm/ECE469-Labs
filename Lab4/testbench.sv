@@ -18,6 +18,7 @@ module testbench();
     .F(F), 
     .Y(Y), 
     .zero(zero)
+    .OF(OF)
   );
 
   always begin
@@ -36,6 +37,7 @@ module testbench();
     
     F = F_pad[2:0];
     zero_expected = zero_pad[0];
+    OF_expected = OF_pad[0];
   end
 
   always @(negedge clk) begin
@@ -44,10 +46,10 @@ module testbench();
       $stop; 
     end
     else begin
-      if (Y !== Y_expected || zero !== zero_expected) begin
+      if (Y !== Y_expected || zero !== zero_expected || OF !==OF_expected) begin
         $display("Error at vector %d: F=%h, A=%h, B=%h", vector_num, F, A, B);
-        $display("  Outputs : Y=%h, zero=%b", Y, zero);
-        $display("  Expected: Y=%h, zero=%b", Y_expected, zero_expected);
+        $display("  Outputs : Y=%h, zero=%b, OF=%b", Y, zero, OF);
+        $display("  Expected: Y=%h, zero=%b, OF=%b", Y_expected, zero_expected, OF_expected);
         errors = errors + 1;
       end
       vector_num = vector_num + 1;
