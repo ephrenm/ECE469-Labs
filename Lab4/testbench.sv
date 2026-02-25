@@ -10,6 +10,7 @@ module testbench();
   
   logic [3:0] F_pad;
   logic [3:0] zero_pad;
+  logic [3:0] OF_pad;
 
   alu dut (
     .A(A), 
@@ -31,7 +32,7 @@ module testbench();
 
   always @(posedge clk) begin
     #1; 
-    {F_pad, A, B, Y_expected, zero_pad} = testvectors[vector_num];
+    {F_pad, A, B, Y_expected, zero_pad, OF_pad} = testvectors[vector_num];
     
     F = F_pad[2:0];
     zero_expected = zero_pad[0];
