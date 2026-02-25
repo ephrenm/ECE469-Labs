@@ -6,7 +6,7 @@ module testbench();
   logic        zero, zero_expected, OF, OF_expected;
   
   logic [31:0] vector_num, errors;
-  logic [103:0] testvectors[1000:0]; 
+  logic [107:0] testvectors[1000:0]; 
   
   logic [3:0] F_pad;
   logic [3:0] zero_pad;
@@ -17,7 +17,7 @@ module testbench();
     .B(B), 
     .F(F), 
     .Y(Y), 
-    .zero(zero)
+    .zero(zero),
     .OF(OF)
   );
 
