@@ -23,7 +23,7 @@ module alu(
   //zero extender
   assign zext_out = {31'b0, S[31]};
   
-  assign _OF = (~A[31] & ~BB[31] & S[31]) | (A[31] & BB[31] & ~S[31]);
+  assign OF = (~A[31] & ~BB[31] & S[31]) | (A[31] & BB[31] & ~S[31]);
 
   //Mux2
   always_comb

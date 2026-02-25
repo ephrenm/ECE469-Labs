@@ -26,7 +26,7 @@ module testbench();
   end
 
   initial begin
-    $readmemh("alu.tv", testvectors);
+    $readmemh("C:/Users/ThinkerPad2/Documents/GitHub/ECE469-Labs/Lab4/alu.tv", testvectors);
     vector_num = 0;
     errors = 0;
   end
@@ -51,6 +51,10 @@ module testbench();
         $display("  Outputs : Y=%h, zero=%b, OF=%b", Y, zero, OF);
         $display("  Expected: Y=%h, zero=%b, OF=%b", Y_expected, zero_expected, OF_expected);
         errors = errors + 1;
+      end
+    else begin
+        $display("Pass at vector %d: F=%h, A=%h, B=%h", vector_num, F, A, B);
+        $display("  Outputs : Y=%h, zero=%b, OF=%b", Y, zero, OF);
       end
       vector_num = vector_num + 1;
     end
