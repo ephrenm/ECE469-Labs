@@ -3,7 +3,7 @@ module testbench();
   logic [2:0]  F;
   logic [31:0] A, B;
   logic [31:0] Y, Y_expected;
-  logic        zero, zero_expected;
+  logic        zero, zero_expected, OF, OF_expected;
   
   logic [31:0] vector_num, errors;
   logic [103:0] testvectors[1000:0]; 
