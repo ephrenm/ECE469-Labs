@@ -41,7 +41,7 @@ module testbench();
   end
 
   always @(negedge clk) begin
-    if (testvectors[vector_num] === 104'bx) begin
+    if (testvectors[vector_num] === 108'bx) begin
       $display("Simulation completed with %d errors.", errors);
       $stop; 
     end
