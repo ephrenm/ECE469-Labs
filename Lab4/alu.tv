@@ -1,4 +1,6 @@
 //test vectors file
+//Second Last Hex bit is for Zero flag and the last is for OF flag
+
 // ADD Operations (F=2)
 2_00000000_00000000_00000000_1_0
 2_00000000_FFFFFFFF_FFFFFFFF_0_0
