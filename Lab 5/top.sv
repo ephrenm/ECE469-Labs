@@ -16,6 +16,10 @@ module top(
 			r[6] = 4'd6;
 			r[7] = 4'd7;
 		end
+		else if (swapnow) begin
+			r[x] <= r[y];
+			r[y] <= r[x];
+		end
 	end
 
 endmodule	
