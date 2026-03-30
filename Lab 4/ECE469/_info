@@ -1,0 +1,86 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 3
+valu
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1772005627
+!i10b 1
+!s100 8eV[V6mQfV?NCn=ZBdlmn0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I=f974j58zORAFe;?D96_W0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+S1
+Z4 dC:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4
+w1772005608
+8C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/alu.sv
+FC:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/alu.sv
+!i122 27
+L0 2 42
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1772005627.000000
+!s107 C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/alu.sv|
+!s90 -reportprogress|300|-work|ECE469|-sv|-stats=none|C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/alu.sv|
+!i113 1
+Z7 o-work ECE469 -sv
+Z8 tCvgOpt 0
+vtestbench
+R0
+R1
+!i10b 1
+!s100 cd2IcT1Al6cVL3M4C51>V2
+R2
+IP`oGCVHG5ANS3B6gGiCN01
+R3
+S1
+R4
+w1772004191
+8C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/testbench.sv
+FC:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/testbench.sv
+!i122 28
+L0 1 58
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/testbench.sv|
+!s90 -reportprogress|300|-work|ECE469|-sv|-stats=none|C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab4/testbench.sv|
+!i113 1
+R7
+R8
+vtestbench3
+R0
+!s110 1771573337
+!i10b 1
+!s100 QdoC0FPi`cFVGeLSEW<S43
+R2
+I`eoMgS@cc?^Zg[[K6USUK2
+R3
+S1
+R4
+w1771573297
+8C:\Users\ephma\OneDrive\Desktop\ECE469-Labs\Lab4\testbench.sv
+FC:\Users\ephma\OneDrive\Desktop\ECE469-Labs\Lab4\testbench.sv
+!i122 9
+L0 2 45
+R5
+r1
+!s85 0
+31
+!s108 1771573337.000000
+!s107 C:\Users\ephma\OneDrive\Desktop\ECE469-Labs\Lab4\testbench.sv|
+!s90 -reportprogress|300|-work|ECE469|-sv|-stats=none|C:\Users\ephma\OneDrive\Desktop\ECE469-Labs\Lab4\testbench.sv|
+!i113 1
+R7
+R8

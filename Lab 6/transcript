@@ -1,0 +1,86 @@
+# Compile of alu.sv was successful.
+# Compile of mips.sv was successful.
+# Compile of mipsmem.sv was successful.
+# Compile of mipsparts.sv was successful.
+# Compile of mipstest.sv was successful.
+# Compile of mipstop.sv was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui ECE469.testbench
+# vsim -gui ECE469.testbench 
+# Start time: 20:13:13 on Mar 29,2026
+# Loading sv_std.std
+# Loading ECE469.testbench
+# Loading ECE469.top
+# Loading ECE469.mips
+# Loading ECE469.controller
+# Loading ECE469.maindec
+# Loading ECE469.aludec
+# Loading ECE469.datapath
+# Loading ECE469.flopr
+# Loading ECE469.adder
+# Loading ECE469.sl2
+# Loading ECE469.mux2
+# Loading ECE469.regfile
+# Loading ECE469.signext
+# Loading ECE469.alu
+# Loading ECE469.imem
+# Loading ECE469.dmem
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'alu'.  Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/mips/dp/alu File: C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mips.sv Line: 127
+# ** Warning: (vsim-3722) C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mips.sv(127): [TFMPC] - Missing connection for port 'OF'.
+add wave -position insertpoint sim:/testbench/*
+add wave -position insertpoint sim:/testbench/dut/*
+add wave -position insertpoint sim:/testbench/dut/*
+run
+run
+# Simulation succeeded
+# ** Note: $stop    : C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mipstest.sv(32)
+#    Time: 175 ps  Iteration: 1  Instance: /testbench
+# Break in Module testbench at C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mipstest.sv line 32
+quit -sim
+# End time: 20:18:35 on Mar 29,2026, Elapsed time: 0:05:22
+# Errors: 0, Warnings: 7
+# Compile of alu.sv was successful.
+# Compile of mips.sv was successful.
+# Compile of mipsmem.sv was successful.
+# Compile of mipsparts.sv was successful.
+# Compile of mipstest.sv was successful.
+# Compile of mipstop.sv was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui ECE469.testbench
+# vsim -gui ECE469.testbench 
+# Start time: 20:24:39 on Mar 29,2026
+# Loading sv_std.std
+# Loading ECE469.testbench
+# Loading ECE469.top
+# Loading ECE469.mips
+# Loading ECE469.controller
+# Loading ECE469.maindec
+# Loading ECE469.aludec
+# Loading ECE469.datapath
+# Loading ECE469.flopr
+# Loading ECE469.adder
+# Loading ECE469.sl2
+# Loading ECE469.mux2
+# Loading ECE469.regfile
+# Loading ECE469.signext
+# Loading ECE469.alu
+# Loading ECE469.imem
+# Loading ECE469.dmem
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'alu'.  Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/mips/dp/alu File: C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mips.sv Line: 127
+# ** Warning: (vsim-3722) C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mips.sv(127): [TFMPC] - Missing connection for port 'OF'.
+add wave -position insertpoint sim:/testbench/*
+add wave -position insertpoint sim:/testbench/dut/*
+add wave -position insertpoint sim:/testbench/dut/mips/*
+run
+run
+# Simulation succeeded
+# ** Note: $stop    : C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mipstest.sv(32)
+#    Time: 175 ps  Iteration: 1  Instance: /testbench
+# Break in Module testbench at C:/Users/ephma/OneDrive/Desktop/ECE469-Labs/Lab 6/mipstest.sv line 32
+run
+quit -sim
+# End time: 20:35:05 on Mar 29,2026, Elapsed time: 0:10:26
+# Errors: 0, Warnings: 4
+# Load canceled
