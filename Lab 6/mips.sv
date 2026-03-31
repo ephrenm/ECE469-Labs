@@ -9,7 +9,7 @@ module mips(input  logic        clk, reset,
             output logic [31:0] aluout, writedata,
             input  logic [31:0] readdata);
 
-  logic        memtoreg, branch,
+  logic        memtoreg, branch, branchop
                pcsrc, zero,
                alusrc, regdst, regwrite, jump;
   logic [2:0]  alucontrol;
@@ -34,7 +34,7 @@ module controller(input  logic [5:0] op, funct,
                   output logic [2:0] alucontrol);
 
   logic [1:0] aluop;
-  logic       branch;
+  logic       branch, branchop;
 
   maindec md(op, memtoreg, memwrite, branch,
              alusrc, regdst, regwrite, jump,
