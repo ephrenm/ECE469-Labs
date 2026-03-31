@@ -19,11 +19,11 @@ module alu(
   
   //adder/subtractor
   assign {Cout, S} = a + BB + f[2];
+
+  assign OF = (~a[31] & ~BB[31] & S[31]) | (a[31] & BB[31] & ~S[31]);
   
   //zero extender
-  assign zext_out = {31'b0, S[31]};
-  
-  assign OF = (~a[31] & ~BB[31] & S[31]) | (a[31] & BB[31] & ~S[31]);
+  assign zext_out = {31'b0, (S[31] ^ OF)};
 
   //Mux2
   always_comb
