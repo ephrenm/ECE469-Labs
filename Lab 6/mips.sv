@@ -41,6 +41,7 @@ module controller(input  logic [5:0] op, funct,
              aluop, branchop);
   aludec  ad(funct, aluop, alucontrol);
 
+	//pcsrc is equal to the result of the mux and the branch control signal
             assign pcsrc = branch & (branchop ? ~zero: zero);
 endmodule
 
@@ -64,9 +65,9 @@ module maindec(input  logic [5:0] op,
       6'b100011: controls = 10'b1010001000; //LW
       6'b101011: controls = 10'b0010010000; //SW
       6'b000100: controls = 10'b0001000001;//BEQ
-      6'b000101: controls = 10'b0001100001;//BNE
+      6'b000101: controls = 10'b0001100001;//BNE ADDED HERE
       6'b001000: controls = 10'b1010000000; //ADDI
-	  6'b001010: controls = 10'b1010000011;	//SLTI
+	  6'b001010: controls = 10'b1010000011;	//SLTI ADDED HERE
       6'b000010: controls = 10'b0000000100; //J
       default:   controls = 10'bxxxxxxxxxx; //???
     endcase
@@ -80,7 +81,7 @@ module aludec(input  logic [5:0] funct,
     case(aluop)
       2'b00: alucontrol = 3'b010;  // add
       2'b01: alucontrol = 3'b110;  // sub
-	  2'b11: alucontrol = 3'b111; // slti
+	  2'b11: alucontrol = 3'b111; // ALU updated to include SLTI
       default: case(funct)          // RTYPE
           6'b100000: alucontrol = 3'b010; // ADD
           6'b100010: alucontrol = 3'b110; // SUB
