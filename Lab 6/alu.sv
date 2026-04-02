@@ -22,7 +22,7 @@ module alu(
 
   assign OF = (~a[31] & ~BB[31] & S[31]) | (a[31] & BB[31] & ~S[31]);
   
-  //zero extender
+  //zero extender for both SLT and SLTI
   assign zext_out = {31'b0, (S[31] ^ OF)};
 
   //Mux2
