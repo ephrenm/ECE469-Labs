@@ -3,7 +3,7 @@ module testbench;
     logic clk;
     logic d; 
 
-    logic rec_C, rec_E, rec_4, rec_6, rec_9; [cite: 66]
+    logic rec_C, rec_E, rec_4, rec_6, rec_9;
 
     top dut (
         .reset(reset),
@@ -18,7 +18,7 @@ module testbench;
 
     always #5 clk = ~clk;
 
-    logic [19:0] test_seq = 20'b01100011110011011101; 
+    logic [0:19] test_seq = 20'b01100011110011011101; 
     integer i;
 
     initial begin
@@ -30,7 +30,7 @@ module testbench;
         reset = 0;
 
         for (i = 0; i < 20; i = i + 1) begin
-            @(posedge clk);
+            @(negedge clk);
             d = test_seq[i];
         end
 
