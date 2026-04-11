@@ -35,8 +35,7 @@ module testbench;
         end
 
         #20;
-        
-        $display("Example testbench simulation complete.");
+
         $stop; 
     end
 
