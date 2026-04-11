@@ -18,7 +18,7 @@ module testbench;
 
     always #5 clk = ~clk;
 
-    logic [0:19] test_seq = 20'b01100011110011011101; 
+    logic [19:0] test_seq = 20'b01100011110011011101; 
     integer i;
 
     initial begin

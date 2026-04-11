@@ -9,7 +9,7 @@ module top (
 
 	always_comb begin
 		//next state logic:
-		next_state = next_state[2:0], d;
+		next_state = {state[2:0], d};
 		
 		//output logic:				
 		case (state)
