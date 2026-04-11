@@ -11,3 +11,7 @@ Labs for ECE469 - Hardware Description Language Based Digital and Computer Syste
 * Lab 5 - Register File w/ Swapping
 
 * Lab 6 - MIPS Single-Cycle CPU
+
+* Lab 7 - Content Addressable Memory
+
+* Lab 8 - Pattern Recognition FSM
