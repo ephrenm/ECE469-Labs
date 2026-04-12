@@ -11,7 +11,14 @@ module top (
 		//next state logic:
 		next_state = {state[2:0], d};
 		
-		//output logic:				
+		//output logic:	
+		rec_C = ~state[0] & ~state[1] & state[2] & state[3];
+		rec_E = ~state[0] & state[1] & state[2] & state[3];
+		rec_4 = ~state[0] & ~state[1] & state[2];
+		rec_6 = ~state[0] & state[1] & state[2];
+		rec_9 = state[0] & ~state[1] & ~state[2] & state[3];
+		
+		/*
 		case (state)
 			4'b1100: begin
 				rec_C = 1'b1; 
@@ -61,7 +68,7 @@ module top (
 				rec_9 = 1'b0;
 				end
 				
-		endcase
+		endcase */
 	end
 	
 	always_ff @(posedge clk) begin
