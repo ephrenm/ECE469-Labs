@@ -17,58 +17,6 @@ module top (
 		rec_4 = ~state[0] & ~state[1] & state[2];
 		rec_6 = ~state[0] & state[1] & state[2];
 		rec_9 = state[0] & ~state[1] & ~state[2] & state[3];
-		
-		/*
-		case (state)
-			4'b1100: begin
-				rec_C = 1'b1; 
-				rec_6 = 1'b0; 
-				rec_E = 1'b0; 
-				rec_4 = 1'b1; 
-				rec_9 = 1'b0;
-				end
-			
-			4'b0100: begin
-				rec_C = 1'b0; 
-				rec_6 = 1'b0; 
-				rec_E = 1'b0; 
-				rec_4 = 1'b1; 
-				rec_9 = 1'b0;
-				end
-				
-			4'b1110: begin
-				rec_C = 1'b0; 
-				rec_6 = 1'b1; 
-				rec_E = 1'b1; 
-				rec_4 = 1'b0; 
-				rec_9 = 1'b0;
-				end
-				
-			4'b0110: begin
-				rec_C = 1'b0; 
-				rec_6 = 1'b1; 
-				rec_E = 1'b0; 
-				rec_4 = 1'b0; 
-				rec_9 = 1'b0;
-				end
-				
-			4'b1001: begin
-				rec_C = 1'b0; 
-				rec_6 = 1'b0; 
-				rec_E = 1'b0; 
-				rec_4 = 1'b0; 
-				rec_9 = 1'b1;
-				end
-				
-			default: begin
-				rec_C = 1'b0; 
-				rec_6 = 1'b0; 
-				rec_E = 1'b0; 
-				rec_4 = 1'b0; 
-				rec_9 = 1'b0;
-				end
-				
-		endcase */
 	end
 	
 	always_ff @(posedge clk) begin
