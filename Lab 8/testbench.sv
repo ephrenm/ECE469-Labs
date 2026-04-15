@@ -19,7 +19,10 @@ module testbench;
     always #5 clk = ~clk;
 
     logic [0:19] test_seq = 20'b01100011110011011101; 
+	logic [0:20] test_seq_2 = 21'b100110011100111001110; 
     integer i;
+
+
 
     initial begin
         clk = 0;
@@ -35,6 +38,18 @@ module testbench;
         end
 
         #20;
+
+		reset = 1;
+		d = 0;
+		
+		#20;
+
+		reset = 0;
+
+        for (i = 0; i < 21; i = i + 1) begin
+            @(negedge clk);
+            d = test_seq_2[i];
+        end
 
         $stop; 
     end
