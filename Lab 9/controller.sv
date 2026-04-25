@@ -18,11 +18,14 @@ module controller (
 			pcwrite, memwrite, irwrite, regwrite,
 			alusrca, branch, iord, memtoreg, regdst,
 			alusrcb, pcsrc, aluop);
-			aludec ad(funct, aluop, alucontrol);
 			
- // ADD CODE HERE
- // Add combinational logic (i.e. an assign statement)
- // to produce the PCEn signal (pcen) from the branch,
- // zero, and pcwrite signals
+	aludec ad(funct, aluop, alucontrol);
+			
+	// ADD CODE HERE
+	// Add combinational logic (i.e. an assign statement)
+	// to produce the PCEn signal (pcen) from the branch,
+	// zero, and pcwrite signals
+ 
+	assign pcen = pcwrite | (branch & zero);
  
 endmodule 
