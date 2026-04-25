@@ -58,7 +58,7 @@ module maindec (
 			// Add code here
 			MEMADR: case(op)
 						LW: nextstate = MEMRD;
-						SW: nextstate = MEMWR:
+						SW: nextstate = MEMWR;
 						default: nextstate = 4'bx; // should never happen
 					endcase
 					
