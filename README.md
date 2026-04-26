@@ -15,3 +15,5 @@ Labs for ECE469 - Hardware Description Language Based Digital and Computer Syste
 * Lab 7 - Content Addressable Memory
 
 * Lab 8 - Pattern Recognition FSM
+
+* Lab 9 - MIPS Multi-Cycle CPU
