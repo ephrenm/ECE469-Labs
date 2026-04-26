@@ -48,7 +48,7 @@ module datapath (
 	mux2 #(5) a3_mux(instr[20:16], instr[15:11], regdst, writereg); 		//a3 mux
 	mux2 #(32) wd3_mux(aluout, data, memtoreg, wd3);						//wd3 mux
 	
-	regfile register_file(clk, regwrite, instr[25:21], instr[15:11],		//reg file
+	regfile register_file(clk, regwrite, instr[25:21], instr[20:16],		//reg file
 							writereg, wd3, rd1, rd2);
 							
 	flopr #(32) a_reg(clk, reset, rd1, a);									//A reg
